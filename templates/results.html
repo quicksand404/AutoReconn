@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Recon Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script>
+        function printPage() {
+            window.print();  // This will trigger the browser's print dialog
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Web Recon Results</h1>
+        
+        <h3>Server Info</h3>
+        <p>{{ results['Server Info'] }}</p>
+
+        <h3>Technologies</h3>
+        <ul>
+            {% for tech, data in results['Technologies'].items() %}
+                <li>{{ tech }}: {{ data }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Port Info</h3>
+        <ul>
+            {% for port in results['Port Info'] %}
+                <li>Port {{ port['port'] }}: {{ port['state'] }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>SSL Info</h3>
+        <ul>
+            {% for key, value in results['SSL Info'].items() %}
+                <li>{{ key }}: {{ value }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Subdomains</h3>
+        <ul>
+            {% for subdomain in results['Subdomains'] %}
+                <li>{{ subdomain }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>WHOIS Info</h3>
+        <ul>
+            {% for key, value in results['WHOIS Info'].items() %}
+                <li>{{ key }}: {{ value }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Security Headers</h3>
+        <ul>
+            {% for header, value in results['Security Headers'].items() %}
+                <li>{{ header }}: {{ value }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Page Load Time</h3>
+        <p>{{ results['Page Load Time'] }} seconds</p>
+
+        <h3>Geolocation and Hosting</h3>
+        <ul>
+            {% for key, value in results['Geolocation and Hosting'].items() %}
+                <li>{{ key }}: {{ value }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Content Analysis</h3>
+        <ul>
+            {% for key, value in results['Content Analysis'].items() %}
+                <li>{{ key }}: {{ value }}</li>
+            {% endfor %}
+        </ul>
+
+        <a href="/" class="btn btn-primary mt-3">Back</a>
+        <button class="btn btn-primary mt-4" onclick="printPage()">Print Report</button>
+    </div>
+</body>
+</html>

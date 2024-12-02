@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Recon Tool</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Spinner styles */
+        #loading-spinner {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 9999;
+            top: 50%;
+            left: 50%;
+            margin: -50px 0 0 -50px;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Web Recon Tool</h1>
+        <form id="reconForm" method="post" action="/">
+            <div class="form-group">
+                <label for="url">Enter URL:</label>
+                <input type="text" class="form-control" id="url" name="url" placeholder="https://example.com" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Analyze</button>
+        </form>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loading-spinner">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Creating Report...</span>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('reconForm').onsubmit = function() {
+            document.getElementById('loading-spinner').style.display = 'block';
+        };
+    </script>
+</body>
+</html>
+

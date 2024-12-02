@@ -1,0 +1,14 @@
+requests
+builtwith
+nmap
+ssl
+urllib.parse
+sublist3r
+whois
+time
+ipwhois
+socket
+beautifulsoup4
+datetime
+flask
+fpdf
